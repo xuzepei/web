@@ -1,0 +1,204 @@
+<html><head><meta name="viewport"content="width=device-width,height=device-height,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0"/></head><body leftMargin="0" topMargin="0" marginwidth="0" marginheight="0"><html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<head>
+    <style>
+        <!--
+        body{
+            -moz-transition: opacity 1s ease;  /* FF3.7+ */
+            -o-transition: opacity 1s ease;  /* Opera 10.5 */
+            -webkit-transition: opacity 1s ease;  /* Saf3.2+, Chrome */
+            transition: opacity 1s ease;
+            background-color:#000000;
+        }
+
+        /* Portrait */
+        @media screen and (orientation:portrait){
+            #_admPortraitImage{display:inline}
+            #_admLandscapeImage{display:none}
+        }
+        /* Landscape */
+        @media screen and (orientation:landscape){
+            #_admPortraitImage{display:none}
+            #_admLandscapeImage{display:inline}
+        }
+        table{
+            width:100%;
+            height:100%;
+        }
+
+        td{
+            vertical-align:middle;
+            text-align:center;
+        }
+
+        #speaker{
+            position:absolute;
+
+            right:0px;
+            top:0px;
+            float: right;
+            margin: 20px;
+            z-index:1
+        }
+
+        //-->
+    </style>
+    <script type="text/javascript" src="//googleads.g.doubleclick.net/mads/static/mad/sdk/native/api/v1/google_mobile_app_ads.js"></script>
+    <script>
+
+        window.onload = function() {
+                    _admScreenFitting();
+                }
+                <!--
+        var _admDisplayTime = '5';
+        var _admDisplayTimer;
+        var debug = true;
+
+        function _admScreenFitting() {
+
+            var _adTable = document.getElementById('_adTable');
+            var myvideo = document.getElementById('myvideo');
+
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+            //var is_iPad = navigator.userAgent.match(/iPad/i) != null;
+
+            var imageRatio = 1920 / 1080.0;
+
+            // if (is_iPad == false) {
+            // 	imageRatio = 1920 / 1080.0;
+            // 	_admPImage.src="p.jpg"; //iPhone图片
+            // }
+
+            //portrait mode
+            var newWidth = screenHeight / imageRatio;
+            var newHeight = screenHeight;
+            if (newWidth >= screenWidth) {
+            	newWidth = screenWidth;
+                newHeight = screenWidth * imageRatio;
+            }
+
+            //处理iOS刘海屏
+            var hasNotch = false;
+            var ratio = screenHeight / screenWidth;
+            if(ratio > 2.1 && ratio < 2.3) {
+                hasNotch = true;
+            }
+
+            if(hasNotch == true) {
+
+                var speaker = document.getElementById('speaker');
+                speaker.style.top = "35px"; 
+            }
+
+
+            displayDensity = window.devicePixelRatio ? window.devicePixelRatio : 1;
+
+            _adTable.style.marginTop= (screenHeight - newHeight)*0.5 + "px";
+            myvideo.style.width = String(newWidth) + "px";
+            myvideo.style.height = String(newHeight) + "px";
+
+        }
+
+        function _admPreCheckForThirdParty() {
+            // Check for third party impression tracker
+            if ('' != '') {
+                var thirdImp = document.createElement('IMG');
+                thirdImp.src = '';
+                with(thirdImp.style) {
+                    width = '1px';
+                    height = '1px';
+                    position = 'absolute';
+                    top = '-100%'
+                };
+                document.body.appendChild(thirdImp);
+            }
+        }
+
+        function _admCloseOverlay(){if (admob.opener.isOverlayShowing()){admob.opener.close()}}
+        function _admStartCountDown(){}
+        if (window.addEventListener) {window.addEventListener("resize", _admScreenFitting, false)}
+        if (admob.opener.isOverlayShowing()){_admStartCountDown()}else{admob.events.addEventListener('onshow', _admStartCountDown)}
+
+
+        //-->
+        function pingWithCallback(url, callback) {
+            var ping = document.createElement('script');
+            ping.addEventListener('load', callback, false);
+            ping.src = url;
+            document.body.appendChild(ping);
+        }
+
+        function handleClick() {
+            var callback = redirect();
+            pingWithCallback("%%CLICK_URL_UNESC%%https://itunes.apple.com/app/apple-store/id1387746573?pt=117120889&ct=dfp-interstitial-dd&mt=8", callback);
+            return false;
+        }
+
+        function handleSpeakerClick() {
+            var myvideo = document.getElementById('myvideo');
+
+            if(myvideo.muted == false)
+            {
+                myvideo.muted = true;
+                var myImg = document.getElementById('myImg');
+                myImg.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA/9pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjVEMjA4OTI0OTNCRkRCMTE5MTRBODU5MEQzMTUwOEM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU2MDFEQUFFRDZGMTExRTk4NjRCQjM5NjNCQjlFQUE0IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU2MDFEQUFERDZGMTExRTk4NjRCQjM5NjNCQjlFQUE0IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIElsbHVzdHJhdG9yIENTNiAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4QzhGMDQwN0Q1QzQxMUU5ODY0QkIzOTYzQkI5RUFBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QzhGMDQwOEQ1QzQxMUU5ODY0QkIzOTYzQkI5RUFBNCIvPiA8ZGM6dGl0bGU+IDxyZGY6QWx0PiA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPkZyZWUgaGFtbWVyIGljb24gcG5nIHZlY3RvcjwvcmRmOmxpPiA8L3JkZjpBbHQ+IDwvZGM6dGl0bGU+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VX6H1gAAA0tJREFUeNrsmkloFEEUhmvaccyoScCIO+JBECQe9CSCoEFUVFxCzMGgIKJg9BLQUTFoVBBnLiKKgodEQcUVD64RFHEjeDDiggsqQXBBIxjR6GhM/B/9GotmJunq6a5Ohn7wEfr1dHX//apeVb9KJJlMCo02HYwHDZYjkUh40nDUdmyAkeCdDyJmgrNgv+xMpVI9XuhErGE7ngYoRDGPRcwAF8AQ8MuPUMsRKQdHQCF4yYLSHtyjjEUM9LPPWhGpBAdZBNlWsBLEc2x/lg4RspBv4Cvo4uMYi1kMIi7bngvO6xAhC7kFNoM30rkx7Ct3IWYBOA0G60qHlpB20AjqQKt0vhRsA1MU2lwEzkjdVKsQsp/gBD94Wjo/CRwHEx20R9E7BwqEZrOn305wiAd+G/uoW02glA8md9NWBYvoJwIwI4u/lqPTKfnmgw1gbIbfV/KYCMyiWfztHAGytbau8wesAb/ZV8VLjkiQQoxuzrWAfeCyFJkC7kJ1fExzzVHQXwRsRg/naYZfBR5IvkFgPTgG6nMcE7N1CaEJ8iN3paeSv5C7VK52TZcQy5o5ATwRvdSiPAvHbBkqU2TSPPOX9lYhNNkViT5uhsgTC4WEQkIhoZBQSCgkFBKQkKJ8EUI14HH5IGQqqAbF+TBG6BO5Jh+EDOWiRrWX3yNVDj6syGg7gIp0u4Q39dxhYCd/rN0Q/6syroVcVPj9VfBCmIW4AS7v2SaNjxJhlpKWgdugQ2fXuiTMYt0Pl/e8C95KxyPAbmHuo2gfI9eFuW3wxcW19OYPgO+2TLY9l3pALoP9Dpgn3O03NnAU7Gl5LxgeRNa6L8wqTIvida380PW2Z6Edrj1Bpd+HHJnXitdRFqzlZCPvVa4QZkm2JIh55Bm/zeeK130AmziyHdIz1fC0ENctRHD3KuMIqb6ELZzN5IXlRmFuY8R1C7He8BzQpHANVTHv8eT4SvKPBquddjE/liifwEJwU1EMze5U5f/MPtpvueI0K/q11qKHWcIrARVr5ATwHuzgtViX0yWKX0b79rRPf5L/OrXD4BF4DP6qrLX8tDRHhrarKzL9IMs/zDSp3kjXMn4pOOXnPaNCny3n9VW0rwuh3eB1YJQfjf8TYACqA50gQgzHbwAAAABJRU5ErkJggg==";
+            } else {
+                myvideo.muted = false;
+                var myImg = document.getElementById('myImg');
+                myImg.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADsAAAAyCAYAAADiKqN7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABABpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjVEMjA4OTI0OTNCRkRCMTE5MTRBODU5MEQzMTUwOEM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQ2RjlFQ0JGRDY2MTExRTk4NjRCQjM5NjNCQjlFQUE0IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQ2RjlFQ0JFRDY2MTExRTk4NjRCQjM5NjNCQjlFQUE0IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIElsbHVzdHJhdG9yIENTNiAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0idXVpZDowOWEzMzVmYi02ZTIxLTQzZTItYTAzMC1iOThjYmZjN2Q0MzIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QUUwQjQzNzRBMjdFRTcxMUI0NDRDNTkyRkE5QTA2MTUiLz4gPGRjOnRpdGxlPiA8cmRmOkFsdD4gPHJkZjpsaSB4bWw6bGFuZz0ieC1kZWZhdWx0Ij5GcmVlIGhhbW1lciBpY29uIHBuZyB2ZWN0b3I8L3JkZjpsaT4gPC9yZGY6QWx0PiA8L2RjOnRpdGxlPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvSrMQ0AAAQgSURBVHja1JpdSBRRFMdn1TTtQbOiTMsohT6MNMkIib7pA7LCiNSggqzsKQIDq5fwoYwQwyCoJ5PKygchw6AgrYgsUqGIIpIU+8LMiNKycvrfdrbW4507486d2Z0Dv4c5e+6d+e/czzPXo6qqEmTLAstAmd03Cguy0DzQBBKcuFmwxHpAKbgIRlusKz2UxcaAq+CIhLp2g1ZQbCqa9VkHSQIt6nCrCKCuAvDbr46dRmXCHB6IHoEMCXVlgvOkZZ4Dy0OhGfsGokmS6msBZ4kvXOseU4MlVuZANKT3gX3gAvHHgxpNuKNiZQ5EeoJ3gcfEvwgccFJsErgHcm1uOd/BZtBL/Kw1TXdCrMyBKNbEH/YaFBFfFDhp99STB/rVkRtv6okFzdr0UmDi3tc59Wb4x8gS6QGlauBWoSPUZz9BtsEzJHP+6DrZYmNArWrNqNjDnJi3YKLBs1RwyqXJEqu3IrIqNhzUcOKuGDxPAuftlssQmwXeqXKM12ejQSsndp3Bc1WR+G4wiv3G+trGAEbJZHBc4kLhFNjP8aeCJ9ro6rM2MF+bZ3m2BDQSXw64pqihYaKNAK//5hgMlu0kvtLpjUCgVg7eE98eg5VVPfGtDoVMhRnrB5XEt8ZgU3GT0x2S3CCWWRUYJCu/tYL425w+Pc8tYt+AB8S3UhD/VVtG+ttst4hldouzgRfZU3I9x01iW8l1CogUxL8k1wluEvuck5kQDVI95DrOTWJ7OL6xgvjPNNZNYgc4vmhBfB+5jnSTWI9OpkLP6B8x4CaxE0y8PZqtGBLrJrEzOMvCDkH8ONoK3CSWzqtd4Icgnibc2t0kdim5bh5hS3CN2HiO2LuC+AiQRsUy56YAbh4HTugMGnZYgSbA3+oE8SyNO4b4HkYYFFIMdhasbLrNQtkz0gw/2xR0CsosJtcsif7MSjNmI2E2uGyzWLZRn0Z8pw3K0NZ6/+8WUVLOuIR8K5WVlmHZwk8ktgNECJ5nChgkZfbKSsuw+e4Y2AC+SHyj7NmqOevfEvBLUC6frLZYbK33SeV+/pgJXkh6s7yE9x2tJendPxJ0kTI37PryzrZhC0GDxXomg23Ex1rNDkU/hep7q4nE9/+jtU1nJ1hGv8zim52rJbh9tsXgnlHgFamXtbIw2R+29MgHfRYGqBStWRabuNchTr2FdnzFE5EJOi0kycebuAf7gveN1Nmu9WFHT8uwYwALFO+X+EDso4lFxyXFe6zB3w7SDb9Ta+MPYIUy/ISLDDuqeM9R+FvDv+lmyCTp7KEvRhEYkHDoi5HL6RK9IDHYh758dgasAt0StnzVHH+h4k2qc1cpwbAmrR+3WagjlZNnKuc23yA2Y3pEocZCM97utyav1+Z33XhPCByuZuvYWWwLFmD5rVrTXW+QgFP+CDAAERVJEhyt1nkAAAAASUVORK5CYII=";
+            }
+
+        }
+
+        function redirect() {
+            var click_url = "itms-apps://itunes.apple.com/app/apple-store/id1387746573?pt=117120889&ct=dfp-interstitial-dd&mt=8";
+            window.location.href=click_url;
+        }
+    </script>
+</head>
+<!-- <script>
+    function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.body.screenHeight + 'px';
+        obj.style.width = obj.contentWindow.document.body.screenWidth + 'px';
+    }
+    //   function resizeFrame(){
+    //             var content_iframe = window.parent.document.getElementById("iframe");//»ñÈ¡iframeID
+    //             content_iframe.height = 1000 + 100;
+    // }
+    function resizeFrame(){
+        frameElement.width = 1000;
+        frameElement.height= 1000;
+    }
+    function resize(){
+        // parent.document.getElementByIdx('iframe').style.height = document.body.scrollHeight+"px";
+//         window.parent.document.getElementById('iframe').width = '1500px';
+// window.parent.document.getElementById('iframe').height = '500px';
+        window.parent.document.getElementsByTagName('iframe')[0].width = '1500px';
+        window.parent.document.getElementsByTagName('iframe')[0].height = '500px';
+    }
+    window.onload=resize;
+    // window.onresize = resize;
+</script> -->
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" >
+        
+<table id="_adTable" align="center" valign="center" border="0px">
+    <tr><td>
+        <a href="#" target="_top" onClick="return handleClick()" >
+        <video id="myvideo" autoplay loop muted playsinline class="video-background" width='100%' poster="%%FILE:JPEG1%%">
+            <source src="https://firebasestorage.googleapis.com/v0/b/testproject-8e737.appspot.com/o/test_vertical_video.mp4?alt=media&token=42cbf4a9-c852-4a4d-aa5b-72b2bd135dac" type="video/mp4">
+        </video>
+    </a>
+    </td></tr>
+</table>
+
+<a id="speaker" magin='40px' href="#" target="_top" onClick="return handleSpeakerClick()" >
+        <img id="myImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA/9pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjVEMjA4OTI0OTNCRkRCMTE5MTRBODU5MEQzMTUwOEM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU2MDFEQUFFRDZGMTExRTk4NjRCQjM5NjNCQjlFQUE0IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU2MDFEQUFERDZGMTExRTk4NjRCQjM5NjNCQjlFQUE0IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIElsbHVzdHJhdG9yIENTNiAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4QzhGMDQwN0Q1QzQxMUU5ODY0QkIzOTYzQkI5RUFBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QzhGMDQwOEQ1QzQxMUU5ODY0QkIzOTYzQkI5RUFBNCIvPiA8ZGM6dGl0bGU+IDxyZGY6QWx0PiA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPkZyZWUgaGFtbWVyIGljb24gcG5nIHZlY3RvcjwvcmRmOmxpPiA8L3JkZjpBbHQ+IDwvZGM6dGl0bGU+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VX6H1gAAA0tJREFUeNrsmkloFEEUhmvaccyoScCIO+JBECQe9CSCoEFUVFxCzMGgIKJg9BLQUTFoVBBnLiKKgodEQcUVD64RFHEjeDDiggsqQXBBIxjR6GhM/B/9GotmJunq6a5Ohn7wEfr1dHX//apeVb9KJJlMCo02HYwHDZYjkUh40nDUdmyAkeCdDyJmgrNgv+xMpVI9XuhErGE7ngYoRDGPRcwAF8AQ8MuPUMsRKQdHQCF4yYLSHtyjjEUM9LPPWhGpBAdZBNlWsBLEc2x/lg4RspBv4Cvo4uMYi1kMIi7bngvO6xAhC7kFNoM30rkx7Ct3IWYBOA0G60qHlpB20AjqQKt0vhRsA1MU2lwEzkjdVKsQsp/gBD94Wjo/CRwHEx20R9E7BwqEZrOn305wiAd+G/uoW02glA8md9NWBYvoJwIwI4u/lqPTKfnmgw1gbIbfV/KYCMyiWfztHAGytbau8wesAb/ZV8VLjkiQQoxuzrWAfeCyFJkC7kJ1fExzzVHQXwRsRg/naYZfBR5IvkFgPTgG6nMcE7N1CaEJ8iN3paeSv5C7VK52TZcQy5o5ATwRvdSiPAvHbBkqU2TSPPOX9lYhNNkViT5uhsgTC4WEQkIhoZBQSCgkFBKQkKJ8EUI14HH5IGQqqAbF+TBG6BO5Jh+EDOWiRrWX3yNVDj6syGg7gIp0u4Q39dxhYCd/rN0Q/6syroVcVPj9VfBCmIW4AS7v2SaNjxJhlpKWgdugQ2fXuiTMYt0Pl/e8C95KxyPAbmHuo2gfI9eFuW3wxcW19OYPgO+2TLY9l3pALoP9Dpgn3O03NnAU7Gl5LxgeRNa6L8wqTIvida380PW2Z6Edrj1Bpd+HHJnXitdRFqzlZCPvVa4QZkm2JIh55Bm/zeeK130AmziyHdIz1fC0ENctRHD3KuMIqb6ELZzN5IXlRmFuY8R1C7He8BzQpHANVTHv8eT4SvKPBquddjE/liifwEJwU1EMze5U5f/MPtpvueI0K/q11qKHWcIrARVr5ATwHuzgtViX0yWKX0b79rRPf5L/OrXD4BF4DP6qrLX8tDRHhrarKzL9IMs/zDSp3kjXMn4pOOXnPaNCny3n9VW0rwuh3eB1YJQfjf8TYACqA50gQgzHbwAAAABJRU5ErkJggg==" width="30px" height="30px">
+        </img>
+    </a>
+    
+</body>
+</html>
+</body></html>
+

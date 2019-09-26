@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta name="viewport"content="width=device-width,height=device-height,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0"/></head><body leftMargin="0" topMargin="0" marginwidth="0" marginheight="0"><html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<head>
+    <style>
+        <!--
+        body{
+            -moz-transition: opacity 1s ease;  /* FF3.7+ */
+            -o-transition: opacity 1s ease;  /* Opera 10.5 */
+            -webkit-transition: opacity 1s ease;  /* Saf3.2+, Chrome */
+            transition: opacity 1s ease;
+            background-color:#000000;
+        }
+
+        /* Portrait */
+        @media screen and (orientation:portrait){
+            #_admPortraitImage{display:inline}
+            #_admLandscapeImage{display:none}
+        }
+        /* Landscape */
+        @media screen and (orientation:landscape){
+            #_admPortraitImage{display:none}
+            #_admLandscapeImage{display:inline}
+        }
+        table{
+            width:100%;
+            height:100%;
+        }
+
+        td{
+            vertical-align:middle;
+            text-align:center;
+        }
+        //-->
+
+    </style>
+    <script type="text/javascript" src="//googleads.g.doubleclick.net/mads/static/mad/sdk/native/api/v1/google_mobile_app_ads.js"></script>
+    <!--<script type="text/javascript" src="http://media.admob.com/api/v1/google_mobile_app_ads.js"></script>-->
+    <script>
+
+        window.onload = function() {
+                    _admScreenFitting();
+                }
+                <!--
+        var _admDisplayTime = '5';
+        var _admDisplayTimer;
+        var debug = true;
+
+        function _admScreenFitting() {
+
+            var _admPImage = document.getElementById('_admPortraitImage');
+            var _admLImage = document.getElementById('_admLandscapeImage');
+            var _adTable = document.getElementById('_adTable');
+
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+
+            
+            //var is_iPad = navigator.userAgent.match(/Tablet|iPad/i) != null;
+
+            var imageRatio = 2048 / 1536.0;
+            _admPImage.src="%%FILE:JPG1%%"; //Pad图片
+
+            // if (is_iPad == false) {
+            // 	imageRatio = 1920 / 1080.0;
+            // 	_admPImage.src="%%FILE:JPG1%%"; //Phone图片
+            // }
+            
+            //portrait mode
+            var newWidth = screenHeight / imageRatio;
+            var newHeight = screenHeight;
+            if (newWidth >= screenWidth) {
+                newHeight = screenWidth * imageRatio;
+                newWidth = screenWidth;
+            }
+
+            displayDensity = window.devicePixelRatio ? window.devicePixelRatio : 1;
+
+            // _admPImage.style.width = newWidth;
+            // _admPImage.style.height = newHeight;
+
+            _adTable.style.marginTop= (screenHeight - newHeight)*0.5 + "px";
+            _admPImage.style.width = String(newWidth) + "px";
+            _admPImage.style.height = String(newHeight) + "px";
+        }
+
+        function _admPreCheckForThirdParty() {
+            // Check for third party impression tracker
+            if ('' != '') {
+                var thirdImp = document.createElement('IMG');
+                thirdImp.src = '';
+                with(thirdImp.style) {
+                    width = '1px';
+                    height = '1px';
+                    position = 'absolute';
+                    top = '-100%'
+                };
+                document.body.appendChild(thirdImp);
+            }
+        }
+
+        function _admCloseOverlay(){if (admob.opener.isOverlayShowing()){admob.opener.close()}}
+        function _admStartCountDown(){}
+        if (window.addEventListener) {window.addEventListener("resize", _admScreenFitting, false)}
+        if (admob.opener.isOverlayShowing()){_admStartCountDown()}else{admob.events.addEventListener('onshow', _admStartCountDown)}
+
+
+        //-->
+        PACKAGE_NAME = 'vampire.love.story&referrer=utm_source%3Ddfp%26utm_medium%3Ddfp-interstitial-dd%26utm_campaign%3Ddfp-interstitial-dd';
+        MARKET_URI ='market://details?id=' + PACKAGE_NAME;
+        HTTPS_URI='https://play.google.com/store/apps/details?id=' + PACKAGE_NAME;
+
+        function pingWithCallback(url, callback) {
+            var ping = document.createElement('script');
+            ping.addEventListener('load', callback, false);
+            ping.src = url;
+            document.body.appendChild(ping);
+        }
+        function redirect() {
+            var openInStore = "%%PATTERN:openInStore%%";
+            if (openInStore == "_yes") {
+                 admob.events.dispatchAppEvent('click', MARKET_URI);
+                 console.log('dispatchAppEvent---->click');
+            }else{
+                 console.log('open https url = ' + encodeURIComponent(HTTPS_URI) );
+                 admob.opener.openUrl('%%CLICK_URL_UNESC%%' + encodeURIComponent(HTTPS_URI),true);
+            }
+        }
+
+        function handleClick() {
+            var callback = redirect();
+            pingWithCallback('%%CLICK_URL_UNESC%%' + encodeURIComponent(HTTPS_URI), callback);
+
+            return false;
+        }
+
+    </script>
+</head>
+<!-- <script>
+    function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.body.screenHeight + 'px';
+        obj.style.width = obj.contentWindow.document.body.screenWidth + 'px';
+    }
+    function resizeFrame(){
+        frameElement.width = 1000;
+        frameElement.height= 1000;
+    }
+    function resize(){
+        window.parent.document.getElementsByTagName('iframe')[0].width = '1500px';
+        window.parent.document.getElementsByTagName('iframe')[0].height = '500px';
+    }
+    window.onload=resize;
+</script> -->
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" >
+<!--     <table id="_adTable" align="center" valign="center" border="0px">
+        <tr><td>
+            <a href="#" target="_top" onClick="return handleClick()" >
+            <img id="_admPortraitImage" style="border:0px" />
+            <img id="_admLandscapeImage" style="border:0px" />
+            </a>
+        </td></tr>
+    </table> -->
+    <a href="#" target="_top" onClick="return handleClick()" >
+        <video autoplay loop muted playsinline class="video-background" width='100%' height='100%' poster="%%FILE:JPG1%%">
+            <source src="https://firebasestorage.googleapis.com/v0/b/testproject-8e737.appspot.com/o/test_vertical_video.mp4?alt=media&token=42cbf4a9-c852-4a4d-aa5b-72b2bd135dac" type="video/mp4">
+        </video>
+    </a>
+</body>
+</html>
+</body></html>
